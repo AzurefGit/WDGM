@@ -1,7 +1,7 @@
 from PIL import Image
 import numpy as np
 
-obrazek = Image.open("inicjaly.bmp")
+# obrazek = Image.open("inicjaly.bmp")
 # print("---------- informacje o obrazie")
 # print("tryb:", obrazek.mode)
 # print("format:", obrazek.format)
@@ -9,7 +9,7 @@ obrazek = Image.open("inicjaly.bmp")
 
 # obrazek.show()
 
-dane_obrazka = np.asarray(obrazek)
+# dane_obrazka = np.asarray(obrazek)
 # dane_obrazka1 = dane_obrazka.astype(np.uint8)
 # print(dane_obrazka1)
 
@@ -36,4 +36,46 @@ dane_obrazka = np.asarray(obrazek)
 
 
 # Zadanie 6
-t2 = np.loadtxt("inicjaly.txt", dtype=np.uint8)
+# t2 = np.loadtxt("inicjaly.txt", dtype=np.uint8)
+# print(t2)
+# print("======================================")
+# print(dane_obrazka)
+#
+#
+# ob_d1 = Image.fromarray(t2)
+# ob_d1.show()
+
+# Zadanie 7
+# obrazek_png = Image.open("inicjaly.png")
+# print("---------- informacje o obrazie")
+# print("tryb:", obrazek_png.mode)
+# print("format:", obrazek_png.format)
+# print("rozmiar:", obrazek_png.size)
+#
+# dane_obrazka_png = np.asarray(obrazek_png)
+# dane_obrazka_png1 = dane_obrazka_png.astype(np.uint8)
+# print(dane_obrazka_png1)
+
+#-----------------------------------------------------------
+
+# obrazek_jpg = Image.open("inicjaly.jpg")
+# print("---------- informacje o obrazie")
+# print("tryb:", obrazek_jpg.mode)
+# print("format:", obrazek_jpg.format)
+# print("rozmiar:", obrazek_jpg.size)
+#
+# dane_obrazka_jpg = np.asarray(obrazek_jpg)
+# dane_obrazka_jpg1 = dane_obrazka_jpg.astype(np.uint8)
+# print(dane_obrazka_jpg1)
+
+#-----------------------------------------------------------
+
+# obrazek_gif = Image.open("inicjaly.gif")
+# print("---------- informacje o obrazie")
+# print("tryb:", obrazek_gif.mode)
+# print("format:", obrazek_gif.format)
+# print("rozmiar:", obrazek_gif.size)
+#
+# dane_obrazka_gif = np.asarray(obrazek_gif)
+# dane_obrazka_gif1 = dane_obrazka_gif.astype(np.uint8)
+# print(dane_obrazka_gif1)
