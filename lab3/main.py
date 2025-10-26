@@ -1,5 +1,3 @@
-# rozpoznowanie trybów: L, 1 lub RGB; zrobić negatyw
-
 import numpy as np
 from PIL import Image
 
@@ -47,34 +45,34 @@ from PIL import Image
 
 # -------------------------- Zadanie 2 -------------------------- #
 
-# def negatyw_szare(obraz):
-#     if obraz.mode == "L":
-#         tab = np.asarray(obraz)
-#         h, w = tab.shape
-#         tab_neg = tab.copy()
-#         for i in range(h):
-#             for j in range(w):
-#                 tab_neg[i, j] = 255 - tab[i, j]
-#         return Image.fromarray(tab_neg)
-#
-#     elif obraz.mode == "1":
-#         tab = np.asarray(obraz)
-#         h, w = tab.shape
-#         tab_neg = tab.copy()
-#         for i in range(h):
-#             for j in range(w):
-#                 tab_neg[i, j] = ~tab_neg[i, j]
-#         return Image.fromarray(tab_neg)
-#
-#     elif obraz.mode == "RGB":
-#         tab = np.asarray(obraz)
-#         h, w, d = tab.shape
-#         tab_neg = tab.copy()
-#         for i in range(h):
-#             for j in range(w):
-#                 for k in range(d):
-#                     tab_neg[i, j, k] = 255 - tab_neg[i, j, k]
-#         return Image.fromarray(tab_neg)
+def negatyw_szare(obraz):
+    if obraz.mode == "L":
+        tab = np.asarray(obraz)
+        h, w = tab.shape
+        tab_neg = tab.copy()
+        for i in range(h):
+            for j in range(w):
+                tab_neg[i, j] = 255 - tab[i, j]
+        return Image.fromarray(tab_neg)
+
+    elif obraz.mode == "1":
+        tab = np.asarray(obraz)
+        h, w = tab.shape
+        tab_neg = tab.copy()
+        for i in range(h):
+            for j in range(w):
+                tab_neg[i, j] = ~tab_neg[i, j]
+        return Image.fromarray(tab_neg)
+
+    elif obraz.mode == "RGB":
+        tab = np.asarray(obraz)
+        h, w, d = tab.shape
+        tab_neg = tab.copy()
+        for i in range(h):
+            for j in range(w):
+                for k in range(d):
+                    tab_neg[i, j, k] = 255 - tab_neg[i, j, k]
+        return Image.fromarray(tab_neg)
 
 #a)
 # gwiazdka = Image.open("gwiazdka.bmp")
@@ -83,7 +81,7 @@ from PIL import Image
 # obraz_neg_g.show()
 
 #b)
-# def rysuj_ramki_kolorowe(w, kolor, zmiana_koloru_r, zmiana_koloru_g, zmiana_koloru_b):
+# def rysuj_ramki_kolorowe(w, kolor, a, b, c):
 #     t = (w, w, 3)
 #     tab = np.zeros(t, dtype=np.uint8)
 #     kolor_r = kolor[0]
@@ -94,13 +92,13 @@ from PIL import Image
 #         for i in range(k, z - k):
 #             for j in range(k, z - k):
 #                 tab[i, j] = [kolor_r, kolor_g, kolor_b]
-#         kolor_r = (kolor_r - zmiana_koloru_r) % 256
-#         kolor_g = (kolor_g - zmiana_koloru_g) % 256
-#         kolor_b = (kolor_b - zmiana_koloru_b) % 256
+#         kolor_r = (kolor_r - a) % 256
+#         kolor_g = (kolor_g - b) % 256
+#         kolor_b = (kolor_b - c) % 256
 #     return Image.fromarray(tab)
-
-
-# rrk = rysuj_ramki_kolorowe(200, [20, 120,220], 6, 10, -6)
+#
+#
+# rrk = rysuj_ramki_kolorowe(200, [20, 120,220], a = 6, b = 10, c = -6)
 # rrk.show()
 # obraz_neg_r = negatyw_szare(rrk)
 # obraz_neg_r.show()
@@ -145,9 +143,16 @@ def koloruj_w_paski(obraz, grub, kolor, zmiana_koloru):
     else:
         print("Zły tryb obrazu")
 
-
 inicjaly = Image.open("inicjaly.bmp")
 print(inicjaly.mode)
-kwp = koloruj_w_paski(inicjaly, 2, [100, 200, 0], 15)
+kwp = koloruj_w_paski(inicjaly, 1, [100, 200, 0], 2020)
 kwp.show()
-#zapisac w jpg i png
+# kwp.save("kwp.jpg")
+# kwp.save("kwp.png")
+
+# odp do pytań: plik jpg ulega kompresji stratnej przez co wygląda gorzej niż plik png.
+
+# ---------------- Zadanie 4 ------------------ #
+# Typ unit8 w przypadku podania wartości innej niż z przedziału 0 - 255 będzie konwertować daną liczbę na liczbę właśnie z tego przedziału, przykłady:
+# a) 328 - 256 = 72
+# b) -24 + 256 = 232
