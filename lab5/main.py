@@ -98,7 +98,7 @@ def rozpoznaj_mix(obraz, mix):
     return tab2
 
 
-# Zad 1
+# ------------------------------------- zad 1 ------------------------------------- #
 # a)
 im = Image.open("obraz.png")
 # print("Statystyki obrazu(im):")
