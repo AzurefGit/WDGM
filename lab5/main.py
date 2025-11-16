@@ -44,7 +44,7 @@ def zlicz_piksele(obraz, kolor):
         d1, d2, d3 = tab.shape
         for i in range(d1):
             for j in range(d2):
-                if (tab[i][j] == kolor).all:
+                if (tab[i][j] == kolor).all():
                     licznik += 1
 
     return licznik
@@ -66,10 +66,36 @@ def mieszaj_kanaly(obraz):
     tab1 = [r, g, b, nr, ng, nb]
     tab2 = []
     for i in range(3):
-        rand = random.randrange(5)
+        rand = random.randrange(6)
         tab2.append(tab1[rand])
 
     return Image.merge("RGB", (tab2[0], tab2[1], tab2[2]))
+
+def rozpoznaj_mix(obraz, mix):
+    obraz_n = negatyw(obraz)
+    nr, ng, nb = obraz_n.split()
+    r, g, b = obraz.split()
+    kanaly = {
+        'r': np.array(r),
+        'g': np.array(g),
+        'b': np.array(b),
+        'nr': np.array(nr),
+        'ng': np.array(ng),
+        'nb': np.array(nb)
+    }
+
+    mix_r, mix_g, mix_b = mix.split()
+    mix_kanaly = [np.array(mix_r), np.array(mix_g), np.array(mix_b)]
+    nazwy_kanalow = ['R', 'G', 'B']
+    tab2 = []
+
+    for i, mix_kanal in enumerate(mix_kanaly):
+        for nazwa, kanal in kanaly.items():
+            if np.array_equal(mix_kanal, kanal):
+                tab2.append(f"{nazwy_kanalow[i]} = {nazwa}")
+                break
+
+    return tab2
 
 
 # Zad 1
@@ -112,7 +138,7 @@ r, g, b = im.split()
 # print("B:", zlicz_piksele(b, 155))
 
 # c)
-# print("Obraz:", zlicz_piksele(im, [155,155,155])) # poprawić
+# print("Obraz:", zlicz_piksele(im, [0,0,0]))
 
 # ------------------------------------- zad 2 ------------------------------------- #
 # a)
@@ -174,13 +200,13 @@ r, g, b = im.split()
 # ------------------------------------- zad 4 ------------------------------------- #
 
 # a)
-mix = mieszaj_kanaly(im)
+# mix = mieszaj_kanaly(im)
 # mix.show()
 # mix.save("mix.png")
 
 # b)
-# print(rozpoznaj_mix(im, mix)) #w domu
+# print(rozpoznaj_mix(im, mix))
 
 # ------------------------------------- zad 5 ------------------------------------- #
-im = Image.open('beksinski1.png')
-r, g, b, a = im.split() # ponieważ jest kanał alfa.
+# im = Image.open('beksinski1.png')
+# r, g, b, a = im.split() # ponieważ jest kanał alfa.
