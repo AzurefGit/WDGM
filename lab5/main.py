@@ -105,39 +105,21 @@ im = Image.open("obraz.png")
 # print("tryb", im.mode)
 # print("format", im.format)
 # print("rozmiar", im.size)
-#
-r, g, b = im.split()
+# #
+# r, g, b = im.split()
 #
 # statystyki(im)
 # rysuj_histogram_RGB(im)
 # rysuj_histogram_L(r)
 # rysuj_histogram_L(g)
 # rysuj_histogram_L(b)
-
-# przedstawienie 4 obrazów w jednym oknie plt
-# plt.figure(figsize=(16, 16))
-# plt.subplot(2,2,1) # ile obrazów w pionie, ile w poziomie, numer obrazu
-# plt.imshow(im)
-# plt.axis('off')
-# plt.subplot(2,2,2)
-# plt.imshow(r, "gray")
-# plt.axis('off')
-# plt.subplot(2,2,3)
-# plt.imshow(g, "gray")
-# plt.axis('off')
-# plt.subplot(2,2,4)
-# plt.imshow(b, "gray")
-# plt.axis('off')
-# plt.subplots_adjust(wspace=0.05, hspace=0.05)
-# plt.savefig('figura1.png')
-# plt.show()
-
-# b)
+#
+# # b)
 # print("R:", zlicz_piksele(r, 155))
 # print("G:", zlicz_piksele(g, 155))
 # print("B:", zlicz_piksele(b, 155))
-
-# c)
+#
+# # c)
 # print("Obraz:", zlicz_piksele(im, [0,0,0]))
 
 # ------------------------------------- zad 2 ------------------------------------- #
@@ -146,7 +128,7 @@ r, g, b = im.split()
 # im_jpg = Image.open("im.jpg")
 # print("Statystyki obrazu(im):")
 # statystyki(im)
-#
+
 # print("Statystyki obrazu(im_jpg):")
 # statystyki(im_jpg)
 
@@ -172,8 +154,8 @@ r, g, b = im.split()
 # im_r = Image.fromarray(t_r)
 # im_g = Image.fromarray(t_g)
 # im_b = Image.fromarray(t_b)
-
-# b)
+#
+# # b)
 # im_merged = Image.merge("RGB", (im_r, im_g, im_b))
 
 # c)
@@ -203,8 +185,8 @@ r, g, b = im.split()
 # mix = mieszaj_kanaly(im)
 # mix.show()
 # mix.save("mix.png")
-
-# b)
+#
+# # b)
 # print(rozpoznaj_mix(im, mix))
 
 # ------------------------------------- zad 5 ------------------------------------- #

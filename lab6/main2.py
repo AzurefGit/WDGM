@@ -128,7 +128,7 @@ def odkoduj(obraz1, obraz2):
 # im_r = pokaz_roznice(im)
 # im_r.save("im_jpg3.jpg")
 # im_r.show()
-
+#
 # b)
 # im = Image.open("im.jpg")
 # im_jpg3 = Image.open("im_jpg3.jpg")
@@ -164,13 +164,13 @@ def odkoduj(obraz1, obraz2):
 #
 # obraz1 = wstaw_inicjaly(im, inicialy, (im.size[0] - inicialy.size[0]),0,[0, 255, 0])
 # obraz2 = wstaw_inicjaly(obraz1, inicialy,0, (im.size[1] - inicialy.size[1]),[255, 200, 100])
-# obraz_inicialy = wstaw_inicjaly(obraz2, inicialy, (im.size[0] - int((inicialy.size[0] / 2))), int(im.size[1] / 2),[100, 200, 255])
-# # obraz_inicialy.save("obraz_inicjaly.png")
+# obraz_inicialy = wstaw_inicjaly(obraz2, inicialy, 150, 100,[100, 200, 255])
+# obraz_inicialy.save("obraz_inicjaly.png")
 # obraz_inicialy.show()
 
 # ------------------------------------- zad 9 ------------------------------------- #
 # a) i b)
-# jesien = Image.open('jesien.jpg')
-# zakodowany = Image.open('zakodowany1.bmp')
-# kod2 = odkoduj(jesien,zakodowany)
-# kod2.save('kod2.bmp')
+jesien = Image.open('jesien.jpg')
+zakodowany = Image.open('zakodowany1.bmp')
+kod2 = odkoduj(jesien,zakodowany)
+kod2.save('kod2.bmp')
